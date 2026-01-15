@@ -82,8 +82,8 @@ static void get_agnss_callback(const struct coap_client_response_data *data, voi
 		}
 		return;
 	}
-	if (((offset + len) <= result->buf_sz) && result->buf && data->payload) {
-		memcpy(&result->buf[offset], data->payload, data->payload_len);
+	if ((data->offset + data->payload_len) <= result->buf_sz && result->buf && data->payload) {
+		memcpy(&result->buf[data->offset], data->payload, data->payload_len);
 		result->agnss_sz += data->payload_len;
 		agnss_err = 0;
 	} else if (agnss_err != -ENOBUFS) {

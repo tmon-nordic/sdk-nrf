@@ -178,7 +178,7 @@ static int dap_usb_process(void)
 	struct net_buf *buf = k_fifo_get(&dap_rx_queue, K_FOREVER);
 	uint8_t ep = dapusb_config.endpoint[DAP_USB_EP_IN_IDX].ep_addr;
 #if defined(CONFIG_BRIDGE_CMSIS_DAP_NORDIC_COMMANDS)
-	len = dap_execute_vendor_cmd(buf->data, tx_buf);
+	len = dap_execute_vendor_cmd(&usb_dap_ctx, buf->data, tx_buf);
 #else
 	len = dap_link_execute_cmd(&usb_dap_ctx, buf->data, tx_buf);
 #endif /* defined(CONFIG_BRIDGE_CMSIS_DAP_NORDIC_COMMANDS) */

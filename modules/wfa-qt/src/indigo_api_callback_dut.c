@@ -1901,6 +1901,7 @@ static int configure_sta_handler(struct packet_wrapper *req, struct packet_wrapp
 			 * Process Certificates
 			 */
 			struct net_if *iface = net_if_get_wifi_sta();
+
 			wifi_set_enterprise_credentials(iface, 0);
 
 			if (strstr(tlv->value, "WPA-EAP-SHA256")) {

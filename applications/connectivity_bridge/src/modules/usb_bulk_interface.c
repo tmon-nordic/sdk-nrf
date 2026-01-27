@@ -47,7 +47,8 @@ static K_FIFO_DEFINE(dap_rx_queue);
 NET_BUF_POOL_FIXED_DEFINE(dapusb_rx_pool, USB_BULK_PACKET_COUNT, USB_BULK_PACKET_SIZE, 0, NULL);
 
 /* Execute CMSIS-DAP command and write reply into output buffer */
-size_t dap_execute_vendor_cmd(struct dap_link_context *const dap_link_ctx, uint8_t *in, uint8_t *out);
+size_t dap_execute_vendor_cmd(struct dap_link_context *const dap_link_ctx, uint8_t *in,
+			      uint8_t *out);
 
 /* string descriptor for the interface */
 #define DAP_IFACE_STR_DESC "CMSIS-DAP v2"

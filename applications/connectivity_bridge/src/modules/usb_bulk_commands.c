@@ -103,7 +103,8 @@ static void nrf53_reset_work_handler(struct k_work *work)
 /* This is a placeholder implementation until proper CMSIS-DAP support is available.
  * Only custom vendor commands are supported.
  */
-size_t dap_execute_vendor_cmd(struct dap_link_context *const dap_link_ctx, uint8_t *in, uint8_t *out)
+size_t dap_execute_vendor_cmd(struct dap_link_context *const dap_link_ctx, uint8_t *in,
+			      uint8_t *out)
 {
 	LOG_DBG("got command 0x%02X", in[0]);
 

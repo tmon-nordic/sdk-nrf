@@ -311,7 +311,8 @@ enum {
 
 /* Specifying the expected options (both long and short): */
 static struct sys_getopt_option long_options_nw_beacon_start[] = {
-	{"add_channels", sys_getopt_required_argument, 0, DECT_SHELL_NW_BEACON_START_CMD_ADD_CHANNELS},
+	{"add_channels", sys_getopt_required_argument, 0,
+	 DECT_SHELL_NW_BEACON_START_CMD_ADD_CHANNELS},
 	{"channel", sys_getopt_required_argument, 0, 'c'},
 	{0, 0, 0, 0}};
 
@@ -1665,7 +1666,8 @@ static int dect_shell_associate_cmd(const struct shell *shell, size_t argc, char
 
 	/* Set defaults */
 	params.target_long_rd_id = 0;
-	while ((opt = sys_getopt_long(argc, argv, "t:h", long_options_associate, &long_index)) != -1) {
+	while ((opt = sys_getopt_long(argc, argv, "t:h", long_options_associate, &long_index)) !=
+	       -1) {
 		switch (opt) {
 		case 't': {
 			params.target_long_rd_id = (uint32_t)atoll(sys_getopt_optarg);
@@ -1721,7 +1723,8 @@ static int dect_shell_dissociate_cmd(const struct shell *shell, size_t argc, cha
 
 	/* Set defaults */
 	params.target_long_rd_id = 0;
-	while ((opt = sys_getopt_long(argc, argv, "t:h", long_options_dissociate, &long_index)) != -1) {
+	while ((opt = sys_getopt_long(argc, argv, "t:h", long_options_dissociate, &long_index)) !=
+	       -1) {
 		switch (opt) {
 		case 't': {
 			params.target_long_rd_id = (uint32_t)atoll(sys_getopt_optarg);
@@ -2072,8 +2075,8 @@ static void dect_shell_sett_cmd(const struct shell *shell, size_t argc, char **a
 	newsettings.cmd_params.reset_to_driver_defaults = false;
 	newsettings.cmd_params.write_scope_bitmap = 0;
 
-	while ((opt = sys_getopt_long(argc, argv, "n:t:b:rh", long_options_sett_cmd, &long_index)) !=
-	       -1) {
+	while ((opt = sys_getopt_long(argc, argv, "n:t:b:rh", long_options_sett_cmd,
+				      &long_index)) != -1) {
 		switch (opt) {
 		case 'r': {
 			dect_shell_sett_cmd_print(&current_settings);

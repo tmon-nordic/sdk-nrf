@@ -378,7 +378,7 @@ def __main():
                 if dev["location"] != ['NA'] or dev["location"] == []:
                     print("Location field is only valid for headset devices, setting to NA")
             else:
-                raise KeyError(f"Invalid location name for gateway in JSON file")
+                raise KeyError("Invalid location name for gateway in JSON file")
             location = []
 
         device = DeviceConf(
